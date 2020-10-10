@@ -6,7 +6,6 @@
 import subprocess
 
 command = "echo"
-lst = open('items.txt', 'r', encoding='latin')
-for i in lst:
-    print(subprocess.Popen(command + " " + i, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).stdout.read().strip())
-lst.close()
+with open('items.txt', 'r', encoding='latin') as lst:
+    for i in lst:
+        print(subprocess.Popen(command + " " + i, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).stdout.read().strip())
