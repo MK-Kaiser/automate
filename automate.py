@@ -7,7 +7,7 @@ from subprocess import Popen, PIPE
 
 command = 'echo'
 fileName = 'items.txt'
-with open(fileName, 'r', encoding='latin') as lst:
+with open(fileName, 'r', encoding='latin-1') as lst:
     for i in lst:
         result = Popen(command + " " + i, shell=True, stdout=PIPE, stderr=PIPE)
         print(result.stdout.read().strip())
